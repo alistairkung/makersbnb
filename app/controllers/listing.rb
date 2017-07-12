@@ -24,11 +24,11 @@ class Bnb < Sinatra::Base
   end
 
   post '/search' do
-    redirect "/search/#{params[:location]}&#{params[:max_guests]}"
+    redirect "/search/#{params[:location]}"
   end
 
-  get "/search/:location&:max_guests" do
-    @listings = Listing.all(location: params[:location], max_guests: params[:max_guests])
+  get "/search/:location" do
+    @listings = Listing.all(location: params[:location])
 
     erb :'listings/index'
   end
