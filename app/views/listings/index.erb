@@ -26,6 +26,8 @@
         });
     });
 
+
+
     </script>
   </head>
   <!-- <script src="jquery.js"></script> -->
@@ -41,14 +43,13 @@
 
       <% @listings.each do |listing| %>
       <li>
-        <form action='/search/chosen' method='post'>
+        <a href="/search/individual-listing", name="<%= listing.id %>">
           Title: <%= listing.title %>
           Location: <%= listing.location %>
           Beds: <%= listing.beds %>
           Price: <%= listing.price %>
           Max guests: <%= listing.max_guests %>
-          <input name='<%= listing.title %>' type='submit' value='Book me'/>
-          </form>
+       </a>
       </li>
 
       <% end %>

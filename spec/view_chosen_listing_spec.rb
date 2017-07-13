@@ -1,4 +1,14 @@
 feature 'Select listing' do
+
+  before(:each) do
+    Listing.create(title: 'Nice room',
+    location: 'London',
+    beds: 3,
+    price: '£200',
+    max_guests: 3,
+    )
+  end
+
   scenario 'User can select a specific listing' do
     visit '/listings'
     fill_in 'location', with: 'London'
@@ -6,7 +16,7 @@ feature 'Select listing' do
     click_button 'Search'
     expect(page).to have_content('Nice room')
     click_button 'Book me'
-    visit '/listings/chosen'
+    visit '/search/chosen'
     expect(page).to have_content('Nice room')
   end
 end
