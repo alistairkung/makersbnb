@@ -29,7 +29,6 @@ class Bnb < Sinatra::Base
 
   get "/search/:location" do
     @listings = Listing.all(location: params[:location])
-
     erb :'listings/index'
   end
 end
