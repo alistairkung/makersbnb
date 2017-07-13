@@ -31,4 +31,14 @@ class Bnb < Sinatra::Base
     @listings = Listing.all(location: params[:location])
     erb :'listings/index'
   end
+
+  post '/search/chosen' do
+    # session[:listing] = Listing.first(:id.gte => 1)
+    redirect "/search/#{params[:title]}"
+  end
+
+  get "/search/:title" do
+    @listing = Listing.first(title: params[:title], :id.gte => 1)
+    erb :'listings/chosen'
+  end
 end
