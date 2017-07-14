@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
+gem 'sendgrid-ruby'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
