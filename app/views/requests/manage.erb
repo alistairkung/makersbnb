@@ -1,0 +1,18 @@
+<ul id='requests'>
+
+
+  <li>
+      <% @relevant_bookings.each do |booking| %>
+          <% booking.each do |b| %>
+            <% l = Listing.all(id: b.listing_id) %>
+            Title = <%= l[0].title %>
+            start_date: <%= b.start_date %>
+            end_date: <%= b.end_date %>
+            confirmation: <%= b.confirmation %>
+            <form action="/bookings/<%= b.id %>" method='get'>
+              <input type="submit" value="confirm booking">
+            </form>
+          <%end%>
+      <% end %>
+  </li>
+</ul>
