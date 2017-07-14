@@ -43,13 +43,13 @@
 
       <% @listings.each do |listing| %>
       <li>
-        <a href="/search/individual-listing", name="<%= listing.id %>">
+        <a href="/search/<%= listing.id %>", name='id'>
           Title: <%= listing.title %>
           Location: <%= listing.location %>
           Beds: <%= listing.beds %>
           Price: <%= listing.price %>
           Max guests: <%= listing.max_guests %>
-       </a>
+        </a>
       </li>
 
       <% end %>

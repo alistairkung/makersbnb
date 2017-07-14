@@ -43,8 +43,8 @@ class Bnb < Sinatra::Base
   #   # redirect "/search/#{params[:title]}"
   # end
 
-  get "/search/individual_listing" do
-    @listing = params[:id]
+  get "/search/<%= listing.id %>" do
+    @listing = Listing.get(params[:id])
     erb :'listings/chosen'
   end
 end
