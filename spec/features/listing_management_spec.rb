@@ -17,4 +17,12 @@ feature 'listing management' do
     expect(page).to have_content('batcave')
   end
 
+  scenario 'User can confirm requests for listings' do
+    visit '/requests'
+    click_button 'confirm booking'
+    user = User.first(email: "booker@book.com")
+    booking = Booking.first(user_id: user.id)
+    expect(current_path).to eq "/bookings/#{booking.id}"
+  end
+
 end

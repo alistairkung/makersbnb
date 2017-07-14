@@ -7,15 +7,12 @@ class Bnb < Sinatra::Base
   get '/bookings/new/:listing_id' do
     @listing_id = params[:listing_id]
     erb :'bookings/booking'
-  end   
+  end
 
   post '/bookings' do
     @start_date = params[:start_date]
     @end_date = params[:end_date]
     @listing_id = params[:listing_id]
-    #p @start_date
-    #p @end_date
-    #p @listing_id
     p current_user
     booking = Booking.new
     p booking.date_validation(@start_date, @end_date, @listing_id)
