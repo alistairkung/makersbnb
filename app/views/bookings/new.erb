@@ -1,4 +1,6 @@
 <form action="/bookings/confirm/<%= @booking_id %>" method='post'>
   <input type="hidden" name="<%= @booking_id %>">
   <input type="submit" value="Confirm Booking">
+  <input type="hidden" name="<%= @booking_id %>">
+  <input type="hidden" value="Confirm Booking">
 </form>

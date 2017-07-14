@@ -31,8 +31,14 @@ class Bnb < Sinatra::Base
 
   post "/bookings/confirm/:booking_id" do
     booking = Booking.first(id: params[:booking_id])
-    booking.update(:confirmation => true)
-    erb :'/bookings/success'
+    listing = Listing.first(user_id: booking.user_id)
+    if listing.user_id == current_user.id
+      booking = Booking.first(id: params[:booking_id])
+      booking.update(:confirmation => true)
+      erb :'/bookings/success'
+    else
+      redirect '/bookings/bookingtrial'
+    end
   end
 
 end
